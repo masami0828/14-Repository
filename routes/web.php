@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +12,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/posts', 'PostController@index');
+Route::get('/', 'PostController@index');
