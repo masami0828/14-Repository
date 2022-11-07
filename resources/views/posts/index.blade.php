@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -7,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        {{Auth::user()->name}}
         <h1>Blog Name</h1>
         <div class='posts'>
             @foreach ($posts as $post)
@@ -28,5 +33,16 @@
             {{ $posts->links() }}
         </div>
         [<a href='/posts/create'>create</a>]
+        <div>
+            @foreach($questions as $question)
+                <div>
+                    <a href="https://teratail.com/questions/{{ $question['id'] }}">
+                        {{ $question['title'] }}  
+                    </a>
+                </div>
+            @endforeach
+        </div>
     </body>
 </html>
+
+@endsection
